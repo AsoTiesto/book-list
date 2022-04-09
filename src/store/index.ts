@@ -1,10 +1,12 @@
 import { createStore } from "vuex";
 import axios from "axios";
+import router from "@/router";
 
 export default createStore({
     state: {
         books: "",
         updateBooksData: "",
+        createBookData: "",
     },
     mutations: {
         SET_BOOKS(state, books) {
@@ -12,6 +14,9 @@ export default createStore({
         },
         SET_UPDATE_BOOK_DATA(state, updateBooksData) {
             state.updateBooksData = updateBooksData;
+        },
+        SET_CREATE_DATA(state, createBookData) {
+            state.createBookData = createBookData;
         },
     },
     actions: {
@@ -34,6 +39,10 @@ export default createStore({
                     publicationDate: formState.book.publicationDate,
                 };
                 const data = await axios.post(process.env.VUE_APP_BOOK_API, body);
+                if (data) {
+                    commit("SET_CREATE_DATA", data.data);
+                    router.push({ name: "BookDetailPc", params: { book: JSON.stringify(data.data) } });
+                }
             } catch (error) {
                 console.log(error);
             }
@@ -66,6 +75,9 @@ export default createStore({
         },
         getNewEditData(state) {
             return state.updateBooksData;
+        },
+        getCreateData(state) {
+            return state.createBookData;
         },
     },
     modules: {},

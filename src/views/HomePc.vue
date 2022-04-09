@@ -25,9 +25,9 @@
                             <a-col class="rightBlock"
                                    :flex="3"
                                    :style="{ height: '200px', width: '300px'}">
-                                <span>Book name :<br>{{item.title}}</span>
+                                <span v-show="item.title">Book name :<br>{{item.title}}</span>
                                 <br>
-                                <span>The author :<br>{{item.author}}</span>
+                                <span v-show="item.author">The author :<br>{{item.author}}</span>
                             </a-col>
                         </a-row>
                     </a-col>
@@ -179,6 +179,8 @@ export default defineComponent({
                         );
                     }
                 );
+
+                console.log(this.books);
             } catch (error) {
                 console.log(error);
             }
