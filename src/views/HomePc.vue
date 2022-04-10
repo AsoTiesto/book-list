@@ -7,8 +7,8 @@
                       :size="size"
                       @click="onOpen">Create</a-button>
         </a-layout-header>
-        <a-layout-content style="padding: 50px 50px 50px 50px">
-            <div :style="{ background: '#fff', padding: '24px', minHeight: '280px' }">
+        <a-layout-content>
+            <div :style="{ padding: '24px', minHeight: '280px' }">
                 <a-row>
                     <a-col :span="8"
                            class="bookBlock"
@@ -107,6 +107,7 @@ import { defineComponent, ref, reactive } from "vue";
 import { mapGetters, mapActions } from "vuex";
 
 export default defineComponent({
+    name: "HomePc",
     components: {
         PoweroffOutlined,
         GDialog,
@@ -125,6 +126,7 @@ export default defineComponent({
             wrapperCol: { span: 14 },
         };
         const formState = reactive({
+            routerName: "",
             book: {
                 title: "",
                 author: "",
@@ -203,6 +205,7 @@ export default defineComponent({
                 alert("請檢查必填欄位是否有填寫！");
             }
 
+            this.formState.routerName = "BookDetailPc";
             await this.createBook(this.formState);
         },
         async closeHandler() {
@@ -215,8 +218,6 @@ export default defineComponent({
 <style>
 .createBtn {
     float: right;
-    margin-top: 20px;
-    margin-right: 50px;
 }
 
 .bookBlock:hover {

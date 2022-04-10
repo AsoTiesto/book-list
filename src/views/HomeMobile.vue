@@ -2,7 +2,7 @@
     <a-layout class="layout">
         <a-layout-header :style="{ background: '#fff'}">
             <span class="headerTitle">The book shelf</span>
-            <a-button class="createBtn"
+            <a-button class="createBtnM"
                       type="primary"
                       :size="size"
                       @click="onOpen">Create</a-button>
@@ -17,13 +17,13 @@
                         <a-row type="flex"
                                @click="bookHandler(item)">
                             <a-col class="leftBlock"
-                                   :flex="3">
+                                   :flex="2">
                                 <img src="https://picsum.photos/800/600"
                                      :style="{height: '70%', width: '100%'}"
                                      alt="">
                             </a-col>
                             <a-col class="rightBlock"
-                                   :flex="6">
+                                   :flex="5">
                                 <span v-show="item.title">Book name :<br>{{item.title}}</span>
                                 <br>
                                 <span v-show="item.author">The author :<br>{{item.author}}</span>
@@ -107,6 +107,7 @@ import { defineComponent, ref, reactive } from "vue";
 import { mapGetters, mapActions } from "vuex";
 
 export default defineComponent({
+    name: "HomeMobile",
     components: {
         PoweroffOutlined,
         GDialog,
@@ -125,6 +126,7 @@ export default defineComponent({
             wrapperCol: { span: 14 },
         };
         const formState = reactive({
+            routerName: "",
             book: {
                 title: "",
                 author: "",
@@ -203,6 +205,7 @@ export default defineComponent({
                 alert("請檢查必填欄位是否有填寫！");
             }
 
+            this.formState.routerName = "BookDetailMobile";
             await this.createBook(this.formState);
         },
         async closeHandler() {
@@ -213,15 +216,14 @@ export default defineComponent({
 </script>
 
 <style>
-.createBtn {
+.createBtnM {
     position: relative;
-    left: 100px;
-    margin-top: 2px;
+    left: 120px;
 }
 
 .headerTitle {
     position: relative;
-    left: 75px;
+    left: 55px;
     margin-top: 2px;
 }
 

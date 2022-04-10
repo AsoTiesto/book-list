@@ -11,7 +11,7 @@
                       :size="size"
                       @click="backHandler">Back</a-button>
         </a-layout-header>
-        <a-layout-content style="padding: 50px 50px 50px 50px">
+        <a-layout-content>
             <div :style="{ background: '#fff', padding: '24px', minHeight: '280px' }">
 
                 <a-row>

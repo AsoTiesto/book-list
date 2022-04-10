@@ -41,7 +41,7 @@ export default createStore({
                 const data = await axios.post(process.env.VUE_APP_BOOK_API, body);
                 if (data) {
                     commit("SET_CREATE_DATA", data.data);
-                    router.push({ name: "BookDetailPc", params: { book: JSON.stringify(data.data) } });
+                    router.push({ name: formState.routerName, params: { book: JSON.stringify(data.data) } });
                 }
             } catch (error) {
                 console.log(error);
