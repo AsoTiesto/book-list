@@ -5,6 +5,16 @@
     </div>
     <router-view />
 </template>
+<script>
+import { defineComponent } from "vue";
+
+export default defineComponent({
+    setup() {},
+    mounted() {
+        document.dispatchEvent(new Event("render-event"));
+    },
+});
+</script>
 
 <style>
 #app {

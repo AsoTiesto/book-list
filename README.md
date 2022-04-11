@@ -15,10 +15,12 @@ npm run serve
 npm run build
 ```
 
-### Run your unit tests
+### The Pc page use
 ```
-npm run test:unit
+http://localhost:8080/#/HomePc
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### The Mobile page use
+```
+http://localhost:8080/#/HomeMobile
+```

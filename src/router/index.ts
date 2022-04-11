@@ -1,6 +1,8 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 import HomePc from "../views/HomePc.vue";
 import HomeMobile from "../views/HomeMobile.vue";
+import BookDetailPc from "../views/BookDetailPc.vue";
+import BookDetailMobile from "../views/BookDetailMobile.vue";
 
 const routes: Array<RouteRecordRaw> = [
     {
@@ -16,12 +18,12 @@ const routes: Array<RouteRecordRaw> = [
     {
         path: "/BookDetailPc",
         name: "BookDetailPc",
-        component: () => import("../views/BookDetailPc.vue"),
+        component: BookDetailPc,
     },
     {
         path: "/BookDetailMobile",
         name: "BookDetailMobile",
-        component: () => import("../views/BookDetailMobile.vue"),
+        component: BookDetailMobile,
     },
 ];
 
